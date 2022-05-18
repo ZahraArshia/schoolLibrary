@@ -1,6 +1,6 @@
 class Classroom
-  def initialize(label)
-    @label
+  def initialize(lable)
+    @label = lable
     @students = []
   end
 
