@@ -47,4 +47,4 @@ def main
   App.new
 end
 
-main
+Main
