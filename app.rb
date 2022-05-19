@@ -48,7 +48,7 @@ class App
     print 'teacher name: '
     name = gets.chomp
 
-    teacher = Teacher.new(age, specialization, name)
+    teacher = Teacher.new(age, specialization, name, parent_permission: true)
     puts 'Teacher created successfully'
     @people.push(teacher)
   end
@@ -87,26 +87,31 @@ class App
   end
 
   def create_rental
-    puts 'select the book by number'
-    @books.each_with_index { |book, index| puts "#{index}) Title: #{book.title}, Author: #{book.author}" }
-    selected_book = gets.chomp.to_i
+    if @books.size.zero?
+      puts 'No Books Available'
+    elsif @people.size.zero?
+      puts 'No Person Available'
+    else
+      puts 'select the book by number'
+      @books.each_with_index { |book, index| puts "#{index}) Title: #{book.title}, Author: #{book.author}" }
+      selected_book = gets.chomp.to_i
 
-    puts 'select a person by number'
-    @people.each_with_index { |person, index| puts "#{index}) Name: #{person.name} Age: #{person.age} Id: #{person.id}" }
-    selected_person = gets.chomp.to_i
+      puts 'select a person by number'
+      @people.each_with_index { |person, index| puts "#{index}) Name: #{person.name} Age: #{person.age} Id: #{person.id}" }
+      selected_person = gets.chomp.to_i
 
-    puts 'Enter date [YYYY-MM-DD]'
-    date = gets.chomp.to_s
+      puts 'Enter date [YYYY-MM-DD]'
+      date = gets.chomp.to_s
 
-    rental_item = Rental.new(date, @books[selected_book], @people[selected_person])
-    @rentals.push(rental_item)
-    puts 'Rental created successfully'
+      rental_item = Rental.new(date, @books[selected_book], @people[selected_person])
+      @rentals.push(rental_item)
+      puts 'Rental created successfully'
+    end
   end
 
   def rentalslist
     puts 'inter person id'
-    # @people.each { |i| puts "id: #{i.id}, Person: #{i.name}" }
     id = gets.chomp.to_i
-    @rentals.each { |rental| puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}" if rental.person.id.to_i == selected_person.to_i}
+    @rentals.each { |rental| puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}" if rental.person.id.to_i == id.to_i}
   end
 end

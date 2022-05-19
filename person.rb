@@ -8,13 +8,14 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
   end
 
   # accessor get method
   attr_reader :id
 
   # accessor get and set method
-  attr_accessor :name, :age, :rental
+  attr_accessor :name, :age, :rentals
 
   # Public method
   def can_use_services?
