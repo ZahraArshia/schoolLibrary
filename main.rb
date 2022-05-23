@@ -31,9 +31,9 @@ def selection
   when '4'
     @books.create_book
   when '5'
-    create_rental
+    @rentals.create_rental
   when '6'
-    rentalslist
+    @rentals.rentalslist
   when '7'
     puts 'Thank you for using the app. Goodbye!'
   else
