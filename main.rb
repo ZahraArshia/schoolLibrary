@@ -1,4 +1,4 @@
-require './app'
+require './classes/app'
 
 class Main
   def self.home_page
