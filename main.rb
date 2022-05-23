@@ -25,9 +25,9 @@ def selection
   when '1'
     @books.booklist
   when '2'
-    peoplelist
+    @people.peoplelist
   when '3'
-    create_person
+    @people.create_person
   when '4'
     @books.create_book
   when '5'
