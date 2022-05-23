@@ -5,13 +5,13 @@ require './rental'
 require './student'
 require './teacher'
 require './people'
-require './renting_book'
+require './rentingbooks'
 
 class App
   def initialize
     @books = Books.new
     @people = Peoplemodule.new
-    @rentals = Rentingbook(@books.books, @people.people)
+    @rentals = RentingBooks.new(@books.books, @people.people)
   end
 
   def start
