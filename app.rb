@@ -52,5 +52,4 @@ class App
     end
     selection
   end
-
 end

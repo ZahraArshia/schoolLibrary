@@ -2,6 +2,7 @@ require './person'
 
 class Peoplemodule
   attr_accessor :people
+
   def initialize
     @people = []
   end
