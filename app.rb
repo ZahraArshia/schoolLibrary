@@ -1,4 +1,4 @@
-require './book'
+require './books'
 require './classroom'
 require './person'
 require './rental'
@@ -7,14 +7,13 @@ require './teacher'
 
 class App
   def initialize
-    @books = []
+    @books = Books.new
     @people = []
     @rentals = []
   end
 
-  def booklist
-    puts 'No book found!' if @books.empty?
-    @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
+  def start
+    selection
   end
 
   def peoplelist
@@ -71,19 +70,6 @@ class App
       @people.push(student)
     end
     puts 'Student created successfully'
-  end
-
-  def create_book
-    print 'book title: '
-    title = gets.chomp
-
-    print 'book author: '
-    author = gets.chomp
-
-    book = Book.new(title, author)
-    @books.push(book)
-
-    puts 'Book created successfully'
   end
 
   def create_rental
