@@ -18,7 +18,7 @@ class RentingBooks
     puts 'No rentals has been made at the moment' if JSON.parse(File.read('./data/rental_file.json')).empty?
     print 'To view your rental records, type your ID: '
     id = gets.chomp.to_i
-    rental = JSON.parse(File.read('./data/rental_file.json')).select { |rend| rend["id"] == id }
+    rental = JSON.parse(File.read('./data/rental_file.json')).select { |rend| rend['id'] == id }
     # rental = JSON.parse(File.read('./data/rental_file.json')).select { |rend| rend.id == id }
     if rental.empty?
       puts 'No records exist for that ID'
@@ -27,8 +27,8 @@ class RentingBooks
       puts ''
       rental.each_with_index do |record, index|
         puts ''
-        print "#{index + 1}| Date: #{record["date"]} | Borrower: #{record["borrower"]}"
-        print " Borrowed book: \"#{record["book"]}\" by #{record["author"]}"
+        print "#{index + 1}| Date: #{record['date']} | Borrower: #{record['borrower']}"
+        print " Borrowed book: \"#{record['book']}\" by #{record['author']}"
         puts ''
       end
     end

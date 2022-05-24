@@ -11,7 +11,7 @@ end
 
 def read_books
   books = []
-  (JSON.parse(File.read('./data/book_file.json'))).each do |book|
+  JSON.parse(File.read('./data/book_file.json')).each do |book|
     books.push(Book.new(book['title'], book['author']))
   end
   books
@@ -26,7 +26,7 @@ def write_books(books)
               })
   end
 
-  File.write('./data/book_file.json', (JSON.generate(temp)).to_s)
+  File.write('./data/book_file.json', JSON.generate(temp).to_s)
 end
 
 def write_people(persons)
@@ -49,12 +49,12 @@ def write_people(persons)
             end
   end
 
-  File.write('./data/people_file.json', (JSON.generate(temp)).to_s)
+  File.write('./data/people_file.json', JSON.generate(temp)).to_s
 end
 
 def read_people
   people = []
-  (JSON.parse(File.read('./data/people_file.json'))).each do |person|
+  JSON.parse(File.read('./data/people_file.json')).each do |person|
     people << case person['role']
               when 'Student'
                 Student.new(person['age'], person['name'], parent_permission: person['parent_permission'])
