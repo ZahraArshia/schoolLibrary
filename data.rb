@@ -49,9 +49,7 @@ def write_people(persons)
     end
   end
 
-  ruby = JSON.generate(temp)
-
-  File.write('./data/people_file.json', ruby.to_s)
+  File.write('./data/people_file.json', (JSON.generate(temp)).to_s)
 end
 
 def read_people
@@ -67,5 +65,31 @@ def read_people
   people
 end
 
+# def write_rental(rentals)
+#   temp = []
+#   rentals.each do |rental|
+#     temp.push({
+#       date: rental.date,
+#       id: rental.id,
+#       borrower: rental.name,
+#       book: rental.title,
+#       author: rental.author
+#     })
+#   end
+#     File.write('./data/rental_file.json', JSON.generate(temp))
+#   end
 
+#   # File.write('./data/rental_file.json', JSON.generate(rentals))
+# end
 
+# def read_rentals
+#   books = read_books
+#   persons = read_people
+#   rentals = []
+#   (JSON.parse(File.read('./data/rental_file.json'))).each do |rental|
+#     rentals << Rental.new(rental['date'],
+#       books.select { |book| book.title == rental['title'] } [0],
+#       persons.select { |person| person.id == rental['id'] } [0])
+#   end
+#   rentals
+# end

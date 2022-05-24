@@ -1,21 +1,25 @@
 require './rental'
 require './people'
 require './books'
+require './data'
+require 'json'
 
 class RentingBooks
   attr_accessor :rentals, :people, :books
 
   def initialize(books, person)
-    @rentals = []
+    # @rentals = []
     @books = books
     @people = person
+    @rentals = JSON.parse(File.read('./data/rental_file.json'))
   end
 
   def rentalslist
-    puts 'No rentals has been made at the moment' if @rentals.empty?
+    puts 'No rentals has been made at the moment' if JSON.parse(File.read('./data/rental_file.json')).empty?
     print 'To view your rental records, type your ID: '
     id = gets.chomp.to_i
-    rental = @rentals.select { |rend| rend.person.id == id }
+    rental = JSON.parse(File.read('./data/rental_file.json')).select { |rend| rend["id"] == id }
+    # rental = JSON.parse(File.read('./data/rental_file.json')).select { |rend| rend.id == id }
     if rental.empty?
       puts 'No records exist for that ID'
     else
@@ -23,8 +27,8 @@ class RentingBooks
       puts ''
       rental.each_with_index do |record, index|
         puts ''
-        print "#{index + 1}| Date: #{record.date} | Borrower: #{record.person.name}"
-        print " | Status: #{record.person.class} | Borrowed book: \"#{record.book.title}\" by #{record.book.author}"
+        print "#{index + 1}| Date: #{record["date"]} | Borrower: #{record["borrower"]}"
+        print " Borrowed book: \"#{record["book"]}\" by #{record["author"]}"
         puts ''
       end
     end
@@ -51,9 +55,19 @@ class RentingBooks
       date = gets.chomp.to_s
 
       rent = Rental.new(date, @books[index], individual)
-      @rentals << rent
+      temp = {
+        date: rent.date,
+        id: individual.id,
+        borrower: individual.name,
+        book: @books[index].title,
+        author: @books[index].author
+      }
 
+      @rentals << temp
+      File.write('./data/rental_file.json', JSON.generate(@rentals))
+      # write_rental(@rentals)
       puts 'The book has been rented successfully'
     end
   end
 end
+
