@@ -65,7 +65,6 @@ class RentingBooks
 
       @rentals << temp
       File.write('./data/rental_file.json', JSON.generate(@rentals))
-      # write_rental(@rentals)
       puts 'The book has been rented successfully'
     end
   end
