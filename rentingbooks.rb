@@ -70,4 +70,3 @@ class RentingBooks
     end
   end
 end
-
