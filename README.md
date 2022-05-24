@@ -22,13 +22,20 @@ git clone https://github.com/ZahraArshia/MorseDecoder.git
 irb
 ```
 
-## Author
+## Authors
 
+👤 **Lynette Aluoch Acholah**
 **Zahra Arshia**
 
 - GitHub: [@githubhandle](https://github.com/ZahraArshia)
 
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/zahra-arshia/)
+
+👤 **Lynette Aluoch Acholah**
+
+- GitHub: [@iLynette](https://github.com/iLynette)
+- Twitter: [@acholah_lynette](https://twitter.com/acholah_lynette)
+- LinkedIn: [lynette-acholah](https://linkedin.com/in/lynette-acholah)
 
 ## Contributing
 
