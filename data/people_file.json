@@ -1,1 +1,1 @@
-[]
+[{"role":"Student","name":"jack","age":"10","parent_permission":true},{"role":"Student","name":"12","age":"ana","parent_permission":false},{"role":"Teacher","name":"Mr. green","age":"22","specialization":"math"},{"role":"Student","name":"11","age":"rose","parent_permission":true}]
