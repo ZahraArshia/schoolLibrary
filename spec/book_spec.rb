@@ -22,4 +22,8 @@ describe Book do
       @book.author.should eql 'Author'
     end
   end
+
+  it 'book rentals to be empty' do
+    expect(@book.rentals).to eql []
+  end
 end
