@@ -1,14 +1,14 @@
 require 'spec_helper'
+require './student'
+require './capitalize_decorator'
+require './trimmer_decorator'
+require './decorator'
 
-describe Decorator do
+describe Nameable do
   before :each do
-    @nameable = Nameable.new
-    @decorator = Decorator.new @nameable
-  end
-
-  describe '#new' do
-    it 'takes one parameters and returns an error!' do
-      @decorator.should be_an_instance_of Decorator
-    end
+    person = Student.new(12, 'lynnzahraa')
+    @name = Decorator.new(person)
+    @capitalize = CapitalizeDecorator.new(@name)
+    @trimmed = TrimmerDecorator.new(@name)
   end
 end
