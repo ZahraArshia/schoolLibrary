@@ -28,4 +28,12 @@ describe Student do
       expect(@student.play_hooky).to eql("¯\(ツ)/¯")
     end
   end
+
+  describe '#classroom' do
+    it 'Should return the classroom of student when adding the classroom' do
+      @classroom = Classroom.new 'Lable'
+      @student.classroom = @classroom
+      expect(@student.classroom).to eql @classroom
+    end
+  end
 end
