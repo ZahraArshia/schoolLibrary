@@ -24,8 +24,7 @@ irb
 
 ## Authors
 
-👤 **Lynette Aluoch Acholah**
-**Zahra Arshia**
+👤 **Zahra Arshia**
 
 - GitHub: [@githubhandle](https://github.com/ZahraArshia)
 
