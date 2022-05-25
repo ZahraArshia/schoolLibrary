@@ -1,4 +1,5 @@
 require './book'
+require './student'
 
 describe Book do
   before :each do
@@ -25,5 +26,12 @@ describe Book do
 
   it 'book rentals to be empty' do
     expect(@book.rentals).to eql []
+  end
+
+  it 'add a rental' do
+    @student = Student.new('12', 'lynn')
+    expect(@book.rentals.length).to eql(0)
+    @book.add_rental('2022-03-03', @student)
+    expect(@book.rentals.length).to eql(1)
   end
 end
