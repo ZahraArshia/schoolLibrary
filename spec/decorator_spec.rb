@@ -11,4 +11,8 @@ describe Nameable do
     @capitalize = CapitalizeDecorator.new(@name)
     @trimmed = TrimmerDecorator.new(@name)
   end
+
+  it 'returns the name' do
+    expect(@name.correct_name).to eql('lynnzahraa')
+  end
 end
