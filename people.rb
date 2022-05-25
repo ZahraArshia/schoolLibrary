@@ -1,10 +1,13 @@
 require './person'
+require './data'
+require 'json'
 
 class Peoplemodule
   attr_accessor :people
 
   def initialize
-    @people = []
+    # @people = []
+    @people = read_people
   end
 
   def peoplelist
@@ -25,6 +28,7 @@ class Peoplemodule
       puts 'invalid input'
     end
 
+    write_people(@people)
     puts 'Person created successfully'
   end
 
@@ -60,6 +64,8 @@ class Peoplemodule
       student = Student.new(age, name, parent_permission: true)
       @people.push(student)
     end
+
+    write_people(@people)
     puts 'Student created successfully'
   end
 end
