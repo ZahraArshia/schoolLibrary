@@ -19,4 +19,8 @@ describe Nameable do
   it 'capitalizes the name' do
     expect(@capitalize.correct_name).to eql('Lynnzahraa')
   end
+
+  it 'trims the name' do
+    expect(@trimmed.correct_name).to eql('lynnzahra')
+  end
 end
