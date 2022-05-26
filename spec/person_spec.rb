@@ -37,4 +37,13 @@ describe Person do
       expect(@person.correct_name).to eql 'Name'
     end
   end
+
+  context 'when add rental method is called' do
+    it 'add the rental to the array' do
+      expect(@person.rentals.length).to eql(0)
+      @book = Book.new('Nothing lasts forever', 'sidney')
+      @person.add_rental('2022-02-03', @book)
+      expect(@person.rentals.length).to eql(1)
+    end
+  end
 end
