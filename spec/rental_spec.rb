@@ -35,7 +35,6 @@ describe Rental do
   end
 
   describe 'test if they correctly push in a new instance of the Rental object' do
-
     it 'Should return only one rental when adding a rental to a teacher and a book' do
       sample_book = Book.new 'computer architecture', 'morris mano'
       sample_person = Teacher.new 26, 'computer', 'Mr. Green'
