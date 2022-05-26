@@ -1,7 +1,5 @@
 require './nameable'
 require './rental'
-# require 'json'
-# require './data.rb'
 
 class Person < Nameable
   def initialize(age, name = 'Unknown', parent_permission: true)
@@ -10,9 +8,6 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
-    # @rentals = read_rentals(@books, @people)
-    # @books = read_books
-    # @people = read_people
     @rentals = []
   end
 
@@ -31,8 +26,8 @@ class Person < Nameable
     @name
   end
 
-  def add_rental(book, date)
-    Rental.new(date, book, self)
+  def add_rental(date, book)
+    @rentals.push(Rental.new(date, book, self)) unless @rentals.include?(Rental.new(date, book, self))
   end
 
   # private method
